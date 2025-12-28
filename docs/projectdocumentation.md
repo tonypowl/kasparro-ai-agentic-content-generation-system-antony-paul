@@ -10,26 +10,34 @@ Based on the requirements, a multi-agent workflow is mandatory so I decided to u
 3. Logic blocks are reusable in a sense that they can be used all kinds of similar data.
 4. Output follows a certain template and is structured JSON generated in 3 'pages'.
 
-**# System Design**
+# System Design
 ## Agent Architecture 
 Each agent has a single responsibility and explicit input & output
 Control agent to coordinate execution flow, called in main.py to tripper the pipeline. 
 Parsing agent normalizes the raw data and outputs a clean product model that's more machine friendly.
 Content agent is assigned with the task to generate questions and logical outputs.
-Page format agent applys a predefined template and ensure that the results are in JSON format and  stored in the 'outputs\' folder 
+Page format agent applys a predefined template and ensure that the results are in JSON format and  stored in the 'outputs\' directory 
+
+# Automation Flow / Orchestration
+The system follows a step-based pipeline (DAG-style) orchestration model. Execution flows sequentially from one agent to the next, with each agent consuming the output of the previous agent.
+
+Automation flow:
+Raw Product Data → Parsing Agent → Content Agent → Page Format Agent → JSON Outputs
 
 ## Reusable Logic Blocks
+Reusable logic blocks are implemented as stateless, pure functions that transform structured input data into derived content.
 - generate_benefits
 - extract_usage
 - compare_prices
 
 ## Templates
+Templates define the structure, rules, and formatting of each content page, they get their input from the logic blocks and agent generated data.
 - FAQ Template
 - Product Description Template
 - Comparison Template
 
 ## Output Format
-All outputs are generated as machine-readable JSON files.
+All outputs are generated as machine-readable JSON files and stored in the /outputs directory.
 
 
 
