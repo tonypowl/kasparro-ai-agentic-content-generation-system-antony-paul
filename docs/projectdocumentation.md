@@ -20,6 +20,7 @@ Page format agent applys a predefined template and ensure that the results are i
 
 ## Automation Flow 
 The system follows a step-based pipeline (DAG-style) orchestration model. Execution flows sequentially from one agent to the next, with each agent consuming the output of the previous agent.
+
 <img width="1306" height="198" alt="Screenshot 2025-12-28 at 6 07 21 PM" src="https://github.com/user-attachments/assets/39f201fb-3414-4ddc-a833-60a71cd3366c" />
 
 ## Reusable Logic Blocks
