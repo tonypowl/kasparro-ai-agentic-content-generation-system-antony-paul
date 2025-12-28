@@ -18,11 +18,9 @@ Parsing agent normalizes the raw data and outputs a clean product model that's m
 Content agent is assigned with the task to generate questions and logical outputs.
 Page format agent applys a predefined template and ensure that the results are in JSON format and  stored in the 'outputs\' directory 
 
-# Automation Flow / Orchestration
+## Automation Flow 
 The system follows a step-based pipeline (DAG-style) orchestration model. Execution flows sequentially from one agent to the next, with each agent consuming the output of the previous agent.
-
-Automation flow:
-Raw Product Data → Parsing Agent → Content Agent → Page Format Agent → JSON Outputs
+<img width="1306" height="198" alt="Screenshot 2025-12-28 at 6 07 21 PM" src="https://github.com/user-attachments/assets/39f201fb-3414-4ddc-a833-60a71cd3366c" />
 
 ## Reusable Logic Blocks
 Reusable logic blocks are implemented as stateless, pure functions that transform structured input data into derived content.
